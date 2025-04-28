@@ -3,6 +3,10 @@ const express = require('express');
 const app = express();
 app.use(express.json());
 
+const cors = require('cors');
+app.use(cors());
+
+
 const expenses = new Map(); // Key: [giverId, receiverId], Value: [amounts]
 
 function getKey(giver, receiver) {
