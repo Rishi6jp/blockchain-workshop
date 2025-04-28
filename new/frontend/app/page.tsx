@@ -1,5 +1,7 @@
 "use client"
 
+const backendUrl = 'https://blockchain-workshop.onrender.com';
+
 import { useState, useEffect } from "react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -20,7 +22,7 @@ export default function Home() {
 
   const fetchTotalExpenses = async () => {
     try {
-      const response = await fetch(`/api/expenses-total?userId=${currentUser}`)
+      const response = await fetch(`${backendUrl}/expenses-total?userId=${currentUser}`)
       const data = await response.json()
       setTotalExpenses(data.total || 0)
     } catch (error) {
