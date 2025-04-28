@@ -6,7 +6,6 @@ app.use(express.json());
 const cors = require('cors');
 app.use(cors());
 
-
 const expenses = new Map(); // Key: [giverId, receiverId], Value: [amounts]
 
 function getKey(giver, receiver) {
@@ -18,6 +17,11 @@ function addToExpenses(giver, receiver, amount) {
   const existing = expenses.get(key) || [];
   expenses.set(key, [...existing, amount]);
 }
+
+// 🛠️ New root route
+app.get('/', (req, res) => {
+  res.send('Expense Tracker Backend is running!');
+});
 
 // POST /add-expense
 app.post('/add-expense', (req, res) => {
