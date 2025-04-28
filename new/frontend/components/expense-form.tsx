@@ -38,7 +38,7 @@ export default function ExpenseForm({ userId, onExpenseAdded }: ExpenseFormProps
     setIsSubmitting(true)
 
     try {
-      const response = await fetch("${backendUrl}/add-expense", {
+      const response = await fetch(`${backendUrl}/add-expense`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
